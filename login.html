@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script >
+$(document).ready(function(){
+$("#login").click(function(){
+var email = $("#email").val();
+var password = $("#password").val();
+if( email =='' || password ==''){
+alert("Please fill all fields");
+}else {
+$.post("login.php",{ email1: email, password1:password},
+function(data) {
+if(data=='Invalid Email') {
+
+alert(data);
+}else if(data=='Email or Password is wrong'){
+
+alert(data);
+} 
+else{
+alert(data);
+}
+});
+}
+});
+});
+</script>
+</head>
+<body>
+<div class="container">
+<div class="main">
+<form class="form" method="post" action="#">
+<h2> Login Form </h2>
+<label>Email :</label>
+<input type="text" name="demail" id="email"><br/>
+<label>Password :</label>
+<input type="password" name="password" id="password"><br/>
+<input type="button" name="login" id="login" value="Login">
+</form>
+</div>
+</div>
+</body>
+</html>
