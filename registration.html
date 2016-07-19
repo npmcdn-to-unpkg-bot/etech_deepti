@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script >
-$(document).ready(function() {
-$("#register").click(function() {
-var name = $("#name").val();
-var email = $("#email").val();
-var password = $("#password").val();
-var cpassword = $("#cpassword").val();
-if (name == '' || email == '' || password == '' || cpassword == '') {
-alert("Please fill all fields");
-}  
- else {
-$.post("register.php", {name1: name,email1: email,password1: password
-}, function(data) {
-if (data == 'Successfully Registered.....') {
-$("form")[0].reset();
-}
-alert(data);
-});
-}
-});
-});
-</script>
-</head>
-<body>
-<div class="container">
-<div class="main">
-<form class="form" method="post" action="login.html">
-<h2>Registration Form </h2>
-<label>Name :</label>
-<input type="text" name="dname" id="name"><br/>
-<label>Email :</label>
-<input type="text" name="demail" id="email"><br/>
-<label>Password :</label>
-<input type="password" name="password" id="password"><br/>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+    <script >
+      $(document).ready(function() {
+        $("#register").click(function() {
+          var name = $("#name").val();
+          var email = $("#email").val();
+          var password = $("#password").val();
+          
+          if (name == '' || email == '' || password == '') {
+            alert("Please fill all fields");
+          }
+          else {
+            $.post("register.php", {
+              name1: name,email1: email,password1: password
+            }
+                   , function(data) {
+              if (data == 'Successfully Registered.....') {
+                $("form")[0].reset();
+              }
+              alert(data);
+            }
+                  );
+          }
+        }
+                            );
+      }
+                       );
+    </script>
+  </head>
+  <body><center>
+    <div class="container">
+      <div class="main">
+        <form class="form" method="post" action="index.html">
+          <h2>Registration Form 
+          </h2>
+          <label>Name :
+          </label>
+          <input type="text" name="dname" id="name"><br/>
+          <br/>
+          <label>Email :
+          </label>
+          <input type="text" name="demail" id="email"><br/>
+          <br/>
+          <label>Password :
+          </label>
+          <input type="password" name="password" id="password"><br/>
+          <br/>
+          <input type="submit" name="register" id="register" value="Register">
 
-<input type="button" name="register" id="register" value="Register">
-</form>
-</div>
-</body>
-</html>
+        </form>
+      </div>
+    </center>
+      </body>
+    </html>
